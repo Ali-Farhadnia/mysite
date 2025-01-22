@@ -697,7 +697,7 @@ first
 &lt;p&gt;Flow control statements are essential tools in Go that allow you to control the execution flow of your programs. By mastering &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;switch&lt;/code&gt;, and &lt;code&gt;defer&lt;/code&gt;, you can write more efficient, readable, and maintainable Go code.&lt;/p&gt;
 &lt;p&gt;I encourage you to try out the example provided in this article and experiment with these concepts on your own.&lt;/p&gt;
 &lt;h2 id=&#34;call-to-action&#34;&gt;Call to Action&lt;/h2&gt;
-&lt;p&gt;This article is part of a &lt;strong&gt;Go Tutorial Series&lt;/strong&gt; aimed at helping you become a more proficient Go developer. If you found this article helpful, be sure to check out the previous and upcoming tutorials in this series. Check it out on my &lt;a href=&#34;https://alifarhadnia.com/golang/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34; &gt;Blog&lt;/a&gt; or &lt;a href=&#34;https://dev.to/ali_farhadnia&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34; &gt;Dev&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This article is part of a &lt;strong&gt;Go Tutorial Series&lt;/strong&gt; aimed at helping you become a more proficient Go developer. If you found this article helpful, be sure to check out the previous and upcoming tutorials in this series. Check it out on my &lt;a href=&#34;https://alifarhadnia.com/golang/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34; &gt;Blog&lt;/a&gt; or &lt;a href=&#34;https://dev.to/ali_farhadnia&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34; &gt;Dev.to&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy coding! 🚀&lt;/p&gt;
 
       </description>
