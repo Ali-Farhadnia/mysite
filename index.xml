@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Ali Farhadnia</title>
+    <link>https://alifarhadnia.com/</link>
+    <description>Recent content in Home on Ali Farhadnia</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://alifarhadnia.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1. Introduction to Go: Why Learn It?</title>
+      <link>https://alifarhadnia.com/golang/1-why-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alifarhadnia.com/golang/1-why-go/</guid>
+      <description>&lt;p&gt;Go, also known as Golang, is a statically typed, compiled programming language designed by Google engineers Robert Griesemer, Rob Pike, and Ken Thompson. Since its release in 2009, Go has gained immense popularity for its simplicity, efficiency, and performance. But why should you learn Go? What makes it stand out in a sea of programming languages? In this article, we’ll explore the reasons why Go is worth your time, break down its core concepts, and walk through a practical example to help you get started.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2. Setting Up Your Go Environment</title>
+      <link>https://alifarhadnia.com/golang/2-setting-up-your-go-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alifarhadnia.com/golang/2-setting-up-your-go-environment/</guid>
+      <description>&lt;p&gt;When diving into the world of Go (Golang), one of the first steps you’ll need to take is setting up your Go environment. This foundational step ensures that you have the necessary tools and configurations to write, build, and run Go programs efficiently. A well-configured environment not only streamlines your development process but also helps you avoid common pitfalls that can arise from misconfigurations.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we’ll walk you through the essential steps to set up your Go environment, explain the core concepts, and provide a practical example to solidify your understanding. By the end of this guide, you’ll have a fully functional Go environment and the knowledge to manage it effectively.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>3. Go Basics: Syntax and Structure</title>
+      <link>https://alifarhadnia.com/golang/3-go-basics-syntax-and-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alifarhadnia.com/golang/3-go-basics-syntax-and-structure/</guid>
+      <description>&lt;p&gt;Welcome to the second installment of our &lt;strong&gt;Go Tutorial Series&lt;/strong&gt;, where we dive into the fundamentals of Go (Golang) to help you build a strong foundation. In this article, we’ll explore &lt;strong&gt;Go Basics: Syntax and Structure&lt;/strong&gt;, covering everything from writing your hello world program to understanding variables, constants, data types, and more. Whether you&amp;rsquo;re a beginner or looking to solidify your understanding, this guide will provide you with the knowledge you need to write clean and efficient Go code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>4. Flow Control Statements in Go</title>
+      <link>https://alifarhadnia.com/golang/4-flow-control-statements-in-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alifarhadnia.com/golang/4-flow-control-statements-in-go/</guid>
+      <description>&lt;p&gt;Flow control statements are the backbone of any programming language, and Go is no exception. They allow developers to dictate the execution flow of their programs, enabling decision-making, looping, and resource management. In this article, we’ll dive deep into Go’s flow control statements, including &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;switch&lt;/code&gt;, and &lt;code&gt;defer&lt;/code&gt;, and explore how they can be used effectively in your Go programs.&lt;/p&gt;&#xA;&lt;p&gt;This article is part of a series of tutorials aimed at helping developers deepen their understanding of Go. Whether you&amp;rsquo;re a beginner or an experienced developer, this guide will provide you with the knowledge you need to write more efficient and readable Go code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

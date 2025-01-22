@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    3. Go Basics: Syntax and Structure - Ali Farhadnia
+  </title>
+
+  <meta name="description" content="3. Go Basics: Syntax and Structure" /><meta name="generator" content="Hugo 0.140.2">
+
+  <link rel="stylesheet" href="https://alifarhadnia.com/css/main.css" />
+
+  
+  
+
+  <meta property="og:url" content="https://alifarhadnia.com/golang/3-go-basics-syntax-and-structure/">
+  <meta property="og:site_name" content="Ali Farhadnia">
+  <meta property="og:title" content="3. Go Basics: Syntax and Structure">
+  <meta property="og:description" content="3. Go Basics: Syntax and Structure">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="golang">
+
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="3. Go Basics: Syntax and Structure">
+  <meta name="twitter:description" content="3. Go Basics: Syntax and Structure">
+
+
+  
+  <meta itemprop="name" content="3. Go Basics: Syntax and Structure">
+  <meta itemprop="description" content="3. Go Basics: Syntax and Structure">
+  <meta itemprop="wordCount" content="1179">
+
+  
+  <meta itemprop="name" content="3. Go Basics: Syntax and Structure">
+  <meta itemprop="description" content="3. Go Basics: Syntax and Structure">
+  <meta itemprop="wordCount" content="1179">
+</head>
+<body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="https://alifarhadnia.com/" class="px-2">
+      <span>Ali Farhadnia</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/golang" >
+        <span>Golang</span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://x.com/Ali__Farhadnia" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Twitter</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/Ali-Farhadnia" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/ali-farhadnia" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="mailto:ali.farhadnia.80@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="https://alifarhadnia.com/golang/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Golang</h2>
+    </a>
+<label class="mb-2 block px-2">
+  <span></span>
+  <input type="text" placeholder="Search articles" class="searchInput bg-white rounded px-2 py-1 w-full border" />
+</label>
+<script>
+  const searchElt = document.querySelector('.searchInput')
+  if (searchElt) {
+    searchElt.addEventListener('input', evt => {
+      const value = evt.target.value || '';
+
+      const articles = document.querySelectorAll('.article')
+      if (!value) {
+        articles.forEach(article => article.classList.remove('hidden'))
+      } else {
+        articles.forEach(article => article.classList.add('hidden'))
+        Array.from(articles).filter(article => {
+          const title = article.querySelector('h3')
+          if (!title) return false;
+
+          return title.textContent.toLowerCase().includes(value.toLowerCase())
+        }).forEach(article => article.classList.remove('hidden'))
+      }
+    })
+  }
+</script>
+<div class="space-y-2.5">
+      
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/golang/1-why-go/">
+        
+        
+        <img class="rounded max-w-full mb-4" src="/images/golang.png" alt="1. Introduction to Go: Why Learn It?" />
+        
+        <h3 class="text-lg font-semibold mb-0.5">1. Introduction to Go: Why Learn It?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          <p>Go, also known as Golang, is a statically typed, compiled programming language designed by Google engineers Robert Griesemer, Rob Pike, and Ken Thompson. Since its release in 2009, Go has gained immense popularity for its simplicity, efficiency, and performance. But why should you learn Go? What makes it stand out in a sea of programming languages? In this article, we’ll explore the reasons why Go is worth your time, break down its core concepts, and walk through a practical example to help you get started.</p>
+        </div>
+      </a>
+      
+      
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/golang/2-setting-up-your-go-environment/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">2. Setting Up Your Go Environment</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          <p>When diving into the world of Go (Golang), one of the first steps you’ll need to take is setting up your Go environment. This foundational step ensures that you have the necessary tools and configurations to write, build, and run Go programs efficiently. A well-configured environment not only streamlines your development process but also helps you avoid common pitfalls that can arise from misconfigurations.</p>
+<p>In this article, we’ll walk you through the essential steps to set up your Go environment, explain the core concepts, and provide a practical example to solidify your understanding. By the end of this guide, you’ll have a fully functional Go environment and the knowledge to manage it effectively.</p>
+        </div>
+      </a>
+      
+      
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/golang/3-go-basics-syntax-and-structure/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">3. Go Basics: Syntax and Structure</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          <p>Welcome to the second installment of our <strong>Go Tutorial Series</strong>, where we dive into the fundamentals of Go (Golang) to help you build a strong foundation. In this article, we’ll explore <strong>Go Basics: Syntax and Structure</strong>, covering everything from writing your hello world program to understanding variables, constants, data types, and more. Whether you&rsquo;re a beginner or looking to solidify your understanding, this guide will provide you with the knowledge you need to write clean and efficient Go code.</p>
+        </div>
+      </a>
+      
+      
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/golang/4-flow-control-statements-in-go/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">4. Flow Control Statements in Go</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          <p>Flow control statements are the backbone of any programming language, and Go is no exception. They allow developers to dictate the execution flow of their programs, enabling decision-making, looping, and resource management. In this article, we’ll dive deep into Go’s flow control statements, including <code>for</code>, <code>if</code>, <code>switch</code>, and <code>defer</code>, and explore how they can be used effectively in your Go programs.</p>
+<p>This article is part of a series of tutorials aimed at helping developers deepen their understanding of Go. Whether you&rsquo;re a beginner or an experienced developer, this guide will provide you with the knowledge you need to write more efficient and readable Go code.</p>
+        </div>
+      </a>
+      
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">3. Go Basics: Syntax and Structure</h1>
+
+	  
+
+      
+
+      <p>Welcome to the second installment of our <strong>Go Tutorial Series</strong>, where we dive into the fundamentals of Go (Golang) to help you build a strong foundation. In this article, we’ll explore <strong>Go Basics: Syntax and Structure</strong>, covering everything from writing your hello world program to understanding variables, constants, data types, and more. Whether you&rsquo;re a beginner or looking to solidify your understanding, this guide will provide you with the knowledge you need to write clean and efficient Go code.</p>
+<p>By the end of this article, you’ll:</p>
+<ul>
+<li>Write your first Go program: <code>Hello, World!</code></li>
+<li>Understand the <code>main</code> package and <code>main</code> function.</li>
+<li>Learn about variables, constants, and data types.</li>
+<li>Discover zero values in Go.</li>
+<li>Explore type inference and type conversion.</li>
+</ul>
+<p>Let’s get started!</p>
+<hr>
+<h2 id="core-concepts">Core Concepts</h2>
+<h3 id="1-writing-your-first-go-program-hello-world">1. Writing Your First Go Program: <code>Hello, World!</code></h3>
+<p>Every programming journey begins with a simple &ldquo;Hello, World!&rdquo; program. In Go, this is no different. Here’s how you can write it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Hello, World!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="explanation">Explanation:</h4>
+<ul>
+<li><strong><code>package main</code></strong>: Every Go program starts with a package declaration. The <code>main</code> package is special because it tells the Go compiler that this is an executable program.</li>
+<li><strong><code>import &quot;fmt&quot;</code></strong>: The <code>fmt</code> package is imported to use functions like <code>Println</code> for printing output to the console.</li>
+<li><strong><code>func main()</code></strong>: The <code>main</code> function is the entry point of the program. Execution begins here.</li>
+<li><strong><code>fmt.Println(&quot;Hello, World!&quot;)</code></strong>: This line prints &ldquo;Hello, World!&rdquo; to the console.</li>
+</ul>
+<h3 id="2-understanding-the-main-package-and-main-function">2. Understanding the <code>main</code> Package and <code>main</code> Function</h3>
+<ul>
+<li>The <code>main</code> package is required for creating an executable program. Without it, your code won’t run as a standalone application.</li>
+<li>The <code>main</code> function is mandatory in the <code>main</code> package. It’s where the program starts executing.</li>
+</ul>
+<h3 id="3-basic-syntax-variables-constants-and-data-types">3. Basic Syntax: Variables, Constants, and Data Types</h3>
+<p>Go is a statically typed language, meaning you need to define the type of data a variable can hold. However, Go also supports type inference, making it easier to write concise code.</p>
+<h4 id="variables">Variables</h4>
+<p>Variables are declared using the <code>var</code> keyword:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#8be9fd">string</span> = <span style="color:#f1fa8c">&#34;Go Developer&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> age <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">25</span>
+</span></span></code></pre></div><p>You can also use shorthand syntax (inside functions):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>name <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;Go Developer&#34;</span>
+</span></span><span style="display:flex;"><span>age <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">25</span>
+</span></span></code></pre></div><h4 id="constants">Constants</h4>
+<p>Constants are immutable values declared with the <code>const</code> keyword:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">const</span> pi <span style="color:#8be9fd">float64</span> = <span style="color:#bd93f9">3.14159</span>
+</span></span></code></pre></div><h4 id="data-types">Data Types</h4>
+<p>Go has several built-in data types:</p>
+<ul>
+<li>
+<p><strong>Basic types</strong>: <code>int</code>, <code>float64</code>, <code>string</code>, <code>bool</code><br>
+Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> age <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> price <span style="color:#8be9fd">float64</span> = <span style="color:#bd93f9">19.99</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#8be9fd">string</span> = <span style="color:#f1fa8c">&#34;Alice&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> isActive <span style="color:#8be9fd">bool</span> = <span style="color:#ff79c6">true</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Composite types</strong>: <code>array</code>, <code>slice</code>, <code>struct</code>, <code>map</code><br>
+Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#6272a4">// Array
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> scores [<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span> = [<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">90</span>, <span style="color:#bd93f9">85</span>, <span style="color:#bd93f9">88</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Slice
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> grades []<span style="color:#8be9fd">float64</span> = []<span style="color:#8be9fd">float64</span>{<span style="color:#bd93f9">89.5</span>, <span style="color:#bd93f9">92.3</span>, <span style="color:#bd93f9">76.8</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Struct
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> Person <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>    FirstName <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>    LastName  <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>    Age       <span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> person = Person{<span style="color:#f1fa8c">&#34;John&#34;</span>, <span style="color:#f1fa8c">&#34;Doe&#34;</span>, <span style="color:#bd93f9">25</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Map
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> capitals <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">string</span> = <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">string</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;France&#34;</span>: <span style="color:#f1fa8c">&#34;Paris&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Japan&#34;</span>:  <span style="color:#f1fa8c">&#34;Tokyo&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="4-zero-values-in-go">4. Zero Values in Go</h3>
+<p>In Go, variables declared without an explicit initial value are given their <strong>zero value</strong>:</p>
+<ul>
+<li><code>0</code> for numeric types.</li>
+<li><code>false</code> for boolean types.</li>
+<li><code>&quot;&quot;</code> (empty string) for strings.</li>
+<li><code>nil</code> for pointers, slices, maps, and channels.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> count <span style="color:#8be9fd">int</span>       <span style="color:#6272a4">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> isReady <span style="color:#8be9fd">bool</span>    <span style="color:#6272a4">// false
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#8be9fd">string</span>     <span style="color:#6272a4">// &#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> ids []<span style="color:#8be9fd">string</span>    <span style="color:#6272a4">// nil
+</span></span></span></code></pre></div><h3 id="5-type-inference-and-type-conversion">5. Type Inference and Type Conversion</h3>
+<p>Go can infer the type of a variable based on the assigned value:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">42</span>          <span style="color:#6272a4">// int
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>y <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">3.14</span>        <span style="color:#6272a4">// float64
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>z <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;Golang&#34;</span>    <span style="color:#6272a4">// string
+</span></span></span></code></pre></div><p>For type conversion, you need to explicitly convert between types:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">42</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> f <span style="color:#8be9fd">float64</span> = <span style="color:#8be9fd;font-style:italic">float64</span>(i)
+</span></span></code></pre></div><hr>
+<h2 id="practical-example">Practical Example</h2>
+<p>Let’s build a more comprehensive program that demonstrates the concepts we’ve covered, including variables, constants, data types, zero values, type inference, and type conversion.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;math&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Variables and constants
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">const</span> pi = <span style="color:#bd93f9">3.14159</span>
+</span></span><span style="display:flex;"><span>	radius <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">5.0</span>
+</span></span><span style="display:flex;"><span>	area <span style="color:#ff79c6">:=</span> pi <span style="color:#ff79c6">*</span> math.<span style="color:#50fa7b">Pow</span>(radius, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Type conversion
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">var</span> intArea <span style="color:#8be9fd">int</span> = <span style="color:#8be9fd;font-style:italic">int</span>(area)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Zero values
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">var</span> count <span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> isReady <span style="color:#8be9fd">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> ids []<span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Type inference
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	x <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">42</span>       <span style="color:#6272a4">// int
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	y <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">3.14</span>     <span style="color:#6272a4">// float64
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	z <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;Golang&#34;</span> <span style="color:#6272a4">// string
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Composite types
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#6272a4">// Array
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">var</span> scores [<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span> = [<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">90</span>, <span style="color:#bd93f9">85</span>, <span style="color:#bd93f9">88</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Slice
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">var</span> grades []<span style="color:#8be9fd">float64</span> = []<span style="color:#8be9fd">float64</span>{<span style="color:#bd93f9">89.5</span>, <span style="color:#bd93f9">92.3</span>, <span style="color:#bd93f9">76.8</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Struct
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">type</span> Person <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>		FirstName <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>		LastName  <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>		Age       <span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> person = Person{<span style="color:#f1fa8c">&#34;John&#34;</span>, <span style="color:#f1fa8c">&#34;Doe&#34;</span>, <span style="color:#bd93f9">25</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Map
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">var</span> capitals <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">string</span> = <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">string</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#f1fa8c">&#34;France&#34;</span>: <span style="color:#f1fa8c">&#34;Paris&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#f1fa8c">&#34;Japan&#34;</span>:  <span style="color:#f1fa8c">&#34;Tokyo&#34;</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Output
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;--- Basic Variables and Constants ---&#34;</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Radius: %.2f\n&#34;</span>, radius)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Area (float): %.2f\n&#34;</span>, area)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Area (int): %d\n&#34;</span>, intArea)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;\n--- Zero Values ---&#34;</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Count: %d\n&#34;</span>, count)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;IsReady: %v\n&#34;</span>, isReady)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Name: %q\n&#34;</span>, name)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;IDs: %v\n&#34;</span>, ids)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;\n--- Type Inference ---&#34;</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;x: %d (type: %T)\n&#34;</span>, x, x)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;y: %.2f (type: %T)\n&#34;</span>, y, y)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;z: %s (type: %T)\n&#34;</span>, z, z)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;\n--- Composite Types ---&#34;</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Scores: %v\n&#34;</span>, scores)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Grades: %v\n&#34;</span>, grades)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Person: %+v\n&#34;</span>, person)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Capitals: %v\n&#34;</span>, capitals)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="output">Output</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--- Basic Variables and Constants ---
+</span></span><span style="display:flex;"><span>Radius: 5.00
+</span></span><span style="display:flex;"><span>Area <span style="color:#ff79c6">(</span>float<span style="color:#ff79c6">)</span>: 78.54
+</span></span><span style="display:flex;"><span>Area <span style="color:#ff79c6">(</span>int<span style="color:#ff79c6">)</span>: <span style="color:#bd93f9">78</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--- Zero Values ---
+</span></span><span style="display:flex;"><span>Count: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>IsReady: <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span>Name: <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>IDs: <span style="color:#ff79c6">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--- Type Inference ---
+</span></span><span style="display:flex;"><span>x: <span style="color:#bd93f9">42</span> <span style="color:#ff79c6">(</span>type: int<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>y: 3.14 <span style="color:#ff79c6">(</span>type: float64<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>z: Golang <span style="color:#ff79c6">(</span>type: string<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--- Composite Types ---
+</span></span><span style="display:flex;"><span>Scores: <span style="color:#ff79c6">[</span><span style="color:#bd93f9">90</span> <span style="color:#bd93f9">85</span> 88<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>Grades: <span style="color:#ff79c6">[</span>89.5 92.3 76.8<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>Person: <span style="color:#ff79c6">{</span>FirstName:John LastName:Doe Age:25<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>Capitals: map<span style="color:#ff79c6">[</span>France:Paris Japan:Tokyo<span style="color:#ff79c6">]</span>
+</span></span></code></pre></div><h4 id="explanation-1">Explanation:</h4>
+<ol>
+<li>
+<p><strong>Variables and Constants</strong>:</p>
+<ul>
+<li>We declare a constant <code>pi</code> and a variable <code>radius</code>.</li>
+<li>We calculate the area of a circle using the formula <code>πr²</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Type Conversion</strong>:</p>
+<ul>
+<li>We convert the area from <code>float64</code> to <code>int</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Zero Values</strong>:</p>
+<ul>
+<li>We demonstrate zero values for <code>int</code>, <code>bool</code>, <code>string</code>, and <code>slice</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Type Inference</strong>:</p>
+<ul>
+<li>We show how Go infers types for variables <code>x</code>, <code>y</code>, and <code>z</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Composite Types</strong>:</p>
+<ul>
+<li>We create an array, a slice, a struct, and a map to demonstrate composite types.</li>
+</ul>
+</li>
+<li>
+<p><strong>Output</strong>:</p>
+<ul>
+<li>We print the results using <code>fmt.Printf</code> and <code>fmt.Println</code> to show the values and types of the variables.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li>
+<p><strong>Use Descriptive Variable Names</strong>: Choose meaningful names for variables and constants to improve code readability.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> userName <span style="color:#8be9fd">string</span> = <span style="color:#f1fa8c">&#34;JohnDoe&#34;</span> <span style="color:#6272a4">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> x <span style="color:#8be9fd">string</span> = <span style="color:#f1fa8c">&#34;JohnDoe&#34;</span>        <span style="color:#6272a4">// Avoid
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Leverage Type Inference</strong>: Use shorthand syntax (<code>:=</code>) for variable declaration when the type is obvious.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>age <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">25</span> <span style="color:#6272a4">// Instead of var age int = 25
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Avoid Unnecessary Type Conversion</strong>: Only convert types when absolutely necessary to avoid potential data loss or errors.</p>
+</li>
+<li>
+<p><strong>Initialize Variables Explicitly</strong>: While Go provides zero values, it’s often better to initialize variables explicitly to avoid confusion.</p>
+</li>
+<li>
+<p><strong>Keep the <code>main</code> Function Clean</strong>: Delegate logic to other functions to keep your <code>main</code> function concise and readable.</p>
+</li>
+</ol>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this article, we covered the basics of Go syntax and structure, including writing your <strong>hello world</strong> program with go, understanding the <code>main</code> package and function, working with variables and constants, and exploring zero values, type inference, and type conversion. These concepts are the building blocks of Go programming, and mastering them will set you up for success as you continue your journey.</p>
+<p>Try modifying the example program or creating your own to reinforce what you’ve learned.</p>
+<hr>
+<h2 id="call-to-action">Call to Action</h2>
+<p>This article is part of a <strong>Go Tutorial Series</strong> designed to help you master Golang. Check it out on my <a href="https://alifarhadnia.com/golang/"  target="_blank" rel="noopener" >blog</a> or <a href="https://medium.com/@ali-farhadnia/list/golang-dc076d4b0d9d"  target="_blank" rel="noopener" >medium</a>. Stay tuned for the next tutorial, where we’ll dive into <strong>Control Structures in Go</strong>.</p>
+<p>Happy coding! 🚀</p>
+
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-15QHL9QW36"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-15QHL9QW36');
+        }
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://alifarhadnia.com/golang/1-why-go/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/golang/2-setting-up-your-go-environment/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/golang/3-go-basics-syntax-and-structure/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/golang/4-flow-control-statements-in-go/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/categories/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/golang/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/</loc>
+  </url><url>
+    <loc>https://alifarhadnia.com/tags/</loc>
+  </url>
+</urlset>
