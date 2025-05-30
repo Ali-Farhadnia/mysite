@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Events & Email Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    .card {
+      width: 300px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      margin-bottom: 2rem;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      display: none;
+    }
+
+    .card:hover .tooltip {
+      display: block;
+    }
+
+    .form {
+      margin-bottom: 2rem;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      background: #fff;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="eventCard">
+    <div class="tooltip">I'm a tooltip!</div>
+    <h3>Mouse Event Card</h3>
+    <p>Try clicking, hovering, or moving your mouse out!</p>
+  </div>
+
+  <form class="form" id="emailForm">
+    <input type="email" id="emailInput" placeholder="Enter email" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <h4>Submitted Emails:</h4>
+  <ul id="emailList"></ul>
+
+  <script>
+    // Card events
+    const card = document.getElementById('eventCard');
+
+    card.addEventListener('mouseenter', () => {
+      card.style.backgroundColor = '#e0f7fa';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.backgroundColor = '#fff';
+    });
+
+    card.addEventListener('click', () => {
+      card.style.transform = 'scale(1.05)';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+      }, 200);
+    });
+
+    // Email form
+    const form = document.getElementById('emailForm');
+    const emailInput = document.getElementById('emailInput');
+    const emailList = document.getElementById('emailList');
+
+    async function fetchEmails() {
+      try {
+        const res = await fetch('https://api.alifarhadnia.com/emails');
+        const data = await res.json();
+        emailList.innerHTML = '';
+        data.forEach(email => {
+          const li = document.createElement('li');
+          li.textContent = email;
+          emailList.appendChild(li);
+        });
+      } catch (e) {
+        console.error('Failed to load emails', e);
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if (!email) return;
+
+      try {
+        await fetch('https://api.alifarhadnia.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        emailInput.value = '';
+        fetchEmails();
+      } catch (e) {
+        console.error('Failed to submit email', e);
+      }
+    });
+
+    // Load emails initially
+    fetchEmails();
+  </script>
+
+</body>
+</html>
